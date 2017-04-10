@@ -1,0 +1,17 @@
+<% content_for(:title, "Skills | Latasha Wanjira") %>
+
+<h2>Skills</h2>
+<hr>
+<% if @skills.any? %>
+	<ul>
+		<% @skills.each do |skill| %>
+			<li><%= link_to skill.skill_name, skill_path(skill) %></li>
+		<% end %>
+	</ul>	
+<% else %>
+	<p>Under maintenance</p>
+<% end %>
+
+<% if admin_signed_in? %>
+	<p><%= link_to "Add New Skill", new_skill_path %></p>
+<% end %>

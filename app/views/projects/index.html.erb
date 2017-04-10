@@ -1,0 +1,17 @@
+<% content_for(:title, "Projects | Latasha Wanjira") %>
+
+<h2>Projects</h2>
+<hr>
+<% if @projects.any? %>
+	<ul>
+		<% @projects.each do |project| %>
+			<li><%= link_to project.project_name, project_path(project) %></li>
+		<% end %>
+	</ul>	
+<% else %>
+	<p>Under maintenance</p>
+<% end %>
+
+<% if admin_signed_in? %>
+	<p><%= link_to "Add New Project", new_project_path %></p>
+<% end %>
