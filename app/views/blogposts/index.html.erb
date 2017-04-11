@@ -1,0 +1,17 @@
+<% content_for(:title, "Blog Posts | Latasha Wanjira") %>
+
+<h2>Blog Posts</h2>
+<hr>
+<% if @blogposts.any? %>
+	<ul>
+		<% @blogposts.each do |blogpost| %>
+			<li><%= link_to blogpost.title, blogpost_path(blogpost) %></li>
+		<% end %>
+	</ul>	
+<% else %>
+	<p>Under maintenance</p>
+<% end %>
+
+<% if admin_signed_in? %>
+	<p><%= link_to "Add New Blog Post", new_blogpost_path %></p>
+<% end %>

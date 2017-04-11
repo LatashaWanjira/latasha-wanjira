@@ -1,0 +1,12 @@
+<%= render "layouts/errors", :object => @blogpost %>
+
+<%= form_for @blogpost do |f| %>
+
+	<%= f.label :title %>	
+	<%= f.text_field :title %>
+
+	<%= f.label :body %>	
+	<%= f.text_field :body %>
+
+	<%= f.submit %>
+<% end %>
