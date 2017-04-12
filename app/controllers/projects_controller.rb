@@ -3,7 +3,11 @@ class ProjectsController < ApplicationController
 
 
   def index
-    @projects = Project.all
+    if params[:tag]
+      @projects = Project.tagged_with(params[:tag])
+    else
+      @projects = Project.all
+    end
   end
 
   def show
@@ -49,6 +53,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:project_name, :description, :link, :image)
+    params.require(:project).permit(:project_name, :description, :link, :image, :tag_list)
   end
 end

@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   resources :blogposts do
     resources :comments
   end
+  get 'tags/:tag', to: 'projects#index', as: :tag
+
   devise_for :admins
 end

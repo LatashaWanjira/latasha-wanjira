@@ -4,7 +4,7 @@
     <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
 
-    <link href="https://fonts.googleapis.com/css?family=Noto+Serif:700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif|Satisfy" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -35,21 +35,39 @@
           <li><%= link_to "Blog", blogposts_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <% if admin_signed_in? %>
-              <li><%= link_to "Edit Admin Details", edit_admin_registration_path %></li>
-              <li><%= link_to "Log Out", destroy_admin_session_path, :method => "delete" %></li>
-            <% else %>
-              <li><%= link_to "Sign Up", new_admin_registration_path %></li>
-              <li><%= link_to "Log In", new_admin_session_path %></li>
-            <% end %>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <% if admin_signed_in? %>
+                <li><%= link_to "Edit Admin Details", edit_admin_registration_path %></li>
+                <li><%= link_to "Log Out", destroy_admin_session_path, :method => "delete" %></li>
+              <% else %>
+                <li><%= link_to "Sign Up", new_admin_registration_path %></li>
+                <li><%= link_to "Log In", new_admin_session_path %></li>
+              <% end %>
+            </ul>
+          </li>
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <% if user_signed_in? %>
+                <li><%= link_to "Edit User Details", edit_user_registration_path %></li>
+                <li><%= link_to "Log Out", destroy_user_session_path, :method => "delete" %></li>
+              <% else %>
+                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                <li><%= link_to "Log In", new_user_session_path %></li>
+              <% end %>
+            </ul>
+          </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
 	<p><%= notice %></p>
 	<p><%= alert %></p>
-    <%= yield %>
-    
+    <div id="content">
+         <%= yield %>
+     </div>
     <div id="footer">
       <h5> &#169 Latasha Ndirangu <%= Time.current.year %></h5>
     </div>

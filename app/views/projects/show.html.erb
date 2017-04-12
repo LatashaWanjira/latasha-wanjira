@@ -1,9 +1,14 @@
 <% content_for(:title, "Project | Latasha Wanjira") %>
 
-<%= image_tag @project.image.url(:medium) %>
+<div class="container-fluid">
+	<%= image_tag @project.image.url(:medium) %>
 
-<h2><%= @project.project_name %></h2>
-<p>Description: <%= @project.description %></p>
-<p>Link: <%= @project.link %></p>
+	<h2><%= @project.project_name %></h2>
+	<p>Description: <%= @project.description %></p>
+	<p>Link: <%= @project.link %></p>
 
-<p><%= link_to "Edit Project", edit_project_path %> | <%= link_to "Delete Project", project_path(@project), :data => { :confirm => "Are you sure you want to delete this project?", :method => "delete" } %></p>
+	<p>Tags: <%= raw(@project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')) %></p>
+
+
+	<p><%= link_to "Edit Project", edit_project_path %> | <%= link_to "Delete Project", project_path(@project), :data => { :confirm => "Are you sure you want to delete this project?", :method => "delete" } %></p>
+</div>

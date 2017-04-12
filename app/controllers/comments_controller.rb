@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  before_action :authenticate_user!, :only => [:new, :edit, :delete]
+
   def new
     @blogpost = Blogpost.find(params[:blogpost_id])
     @comment = @blogpost.comments.new
@@ -10,7 +12,10 @@ class CommentsController < ApplicationController
     @comment = @blogpost.comments.new(comment_params)
     if @comment.save
       flash[:notice] = "Comment added successfully"
-      redirect_to blogpost_path(@comment.blogpost)
+      respond_to do |format|
+        format.html { redirect_to blogpost_path(@comment.blogpost) }
+        format.js
+      end
     else
       flash[:alert] = "Comment was not added"
       render :new
