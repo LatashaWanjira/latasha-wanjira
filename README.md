@@ -1,24 +1,21 @@
-# README
+# MY PORTFOLIO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Synopsis
 
-Things you may want to cover:
+This is a repository for my portfolio. It shows my skills, projects and a brief explanation of who I am.
+  
+#### Configuration
+  bundle install
+  
+* Database creation
+  rails db:create
+  rails db:migrate
+
+#### Installation
 
 * Ruby version
+  ruby 2.2.3
 
-* System dependencies
+* Rails version 
+  rails 5.0.2
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
