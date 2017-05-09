@@ -11,6 +11,7 @@
 	<hr>
 	<% if @projects.any? %>
 		<ul>
+		<div class="row">
 			<% @projects.each do |project| %>
 				<li>
 					<div class=" col-md-4 project project-<%= project.id %>">
@@ -36,6 +37,7 @@
 					</div>
 				</li>
 			<% end %>
+			</div>
 		</ul>	
 	<% else %>
 		<p>Under maintenance</p>

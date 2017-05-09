@@ -6,14 +6,26 @@ li {
 }
 
 .project {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 10px;
     padding: 75px;
+}
+
+.project-show img {
+    float: right;
+    width: 100%;
+    height: auto;
+}
+
+.project-show {
+    padding-top: 50px;
+}
+
+.project-show h2 {
+    font-size: 40px;
 }
 
 .project-text {
     color: white;
-    text-align: center;
 }
 
 .project-text:hover {
@@ -24,7 +36,7 @@ li {
 #tag_cloud {
     margin-top: 50px;
     margin-bottom: 50px;
-    width: 400px;
+    width: 100%;
     line-height: 1.6em;
     .s {
         font-size: 0.8em;
