@@ -65,3 +65,5 @@ gem 'bootstrap-sass'
 gem 'sprockets-rails'
 
 gem 'acts-as-taggable-on', '~> 4.0'
+
+ruby "2.2.3"
